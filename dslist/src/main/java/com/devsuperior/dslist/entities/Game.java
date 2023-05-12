@@ -29,7 +29,7 @@ public class Game {
     @Column(columnDefinition = "TEXT")
     private String longDescription;
 
-    public Game(Long id, String title, Integer year, String genre, String platforms,Double score ,String imgUrl,
+    public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
             String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
@@ -109,18 +109,19 @@ public class Game {
         this.longDescription = longDescription;
     }
 
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((title == null) ? 0 : title.hashCode());
-        result = prime * result + ((year == null) ? 0 : year.hashCode());
-        result = prime * result + ((genre == null) ? 0 : genre.hashCode());
-        result = prime * result + ((platforms == null) ? 0 : platforms.hashCode());
-        result = prime * result + ((imgUrl == null) ? 0 : imgUrl.hashCode());
-        result = prime * result + ((shortDescription == null) ? 0 : shortDescription.hashCode());
-        result = prime * result + ((longDescription == null) ? 0 : longDescription.hashCode());
         return result;
     }
 
@@ -138,50 +139,7 @@ public class Game {
                 return false;
         } else if (!id.equals(other.id))
             return false;
-        if (title == null) {
-            if (other.title != null)
-                return false;
-        } else if (!title.equals(other.title))
-            return false;
-        if (year == null) {
-            if (other.year != null)
-                return false;
-        } else if (!year.equals(other.year))
-            return false;
-        if (genre == null) {
-            if (other.genre != null)
-                return false;
-        } else if (!genre.equals(other.genre))
-            return false;
-        if (platforms == null) {
-            if (other.platforms != null)
-                return false;
-        } else if (!platforms.equals(other.platforms))
-            return false;
-        if (imgUrl == null) {
-            if (other.imgUrl != null)
-                return false;
-        } else if (!imgUrl.equals(other.imgUrl))
-            return false;
-        if (shortDescription == null) {
-            if (other.shortDescription != null)
-                return false;
-        } else if (!shortDescription.equals(other.shortDescription))
-            return false;
-        if (longDescription == null) {
-            if (other.longDescription != null)
-                return false;
-        } else if (!longDescription.equals(other.longDescription))
-            return false;
         return true;
-    }
-
-    public Double getScore() {
-        return score;
-    }
-
-    public void setScore(Double score) {
-        this.score = score;
     }
 
 }
